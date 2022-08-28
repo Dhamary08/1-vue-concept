@@ -17,18 +17,21 @@ var app = new Vue({
     },
     countPlus() {
       this.numValue = (+this.numValue) + (+this.numQuantity);
-      this.lastFiveValue(this.numValue)
+      this.lastFiveValue(this.numValue);
       return this.numValue
     },
     countMinus() {
       this.numValue = (+this.numValue) - (+this.numQuantity);
-      this.lastFiveValue(this.numValue)
+      this.lastFiveValue(this.numValue);
       return this.numValue
     },
     resetAll() {
       this.numValue = 0,
       this.numQuantity = 1,
-      this.listHistory=[]
+      this.listHistory=[];
+    },
+    reset() {
+      this.numQuantity = 1;
     },
   },
   computed: {
