@@ -10,31 +10,34 @@ var app = new Vue({
   },
   methods: {
     lastFiveValue(value) {
-      this.listHistory.push(value)
+      this.listHistory.push(value);
       if (this.listHistory.length > 5) {
-        this.listHistory.shift()
+        this.listHistory.shift();
       }
     },
     countPlus() {
       this.numValue = (+this.numValue) + (+this.numQuantity);
       this.lastFiveValue(this.numValue);
-      return this.numValue
+      return this.numValue;
     },
     countMinus() {
       this.numValue = (+this.numValue) - (+this.numQuantity);
       this.lastFiveValue(this.numValue);
-      return this.numValue
+      return this.numValue;
     },
     resetAll() {
       this.numValue = 0,
-      this.numQuantity = 1,
-      this.listHistory=[];
+        this.numQuantity = 1,
+        this.listHistory = [];
     },
     reset() {
       this.numQuantity = 1;
     },
   },
   computed: {
-    historyText() { return this.listHistory.reverse().join(`\n`)},
+    historyText() {
+      const newListHistory = [... this.listHistory].reverse().join(`\n`)
+      return newListHistory
+    },
   }
 })
